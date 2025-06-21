@@ -1,3 +1,0 @@
-
-curl command:
-curl "http://localhost:5000/query?sql=SELECT%20*%20FROM%20con_master%20limit%20200"
