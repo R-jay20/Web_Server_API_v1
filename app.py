@@ -6,13 +6,18 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# MySQL connection configuration
+# MySQL connection configuration from environment variables
 db_config = {
-    'host': 'gator3041.hostgator.com',
-    'user': 'norsamel_admin',
-    'password': 'oPu8GhjKbrp+',
-    'database': 'norsamel_onlineledger'
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USERNAME'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME')
 }
+
+#'host': 'gator3041.hostgator.com',
+#'user': 'norsamel_admin',
+#'password': 'oPu8GhjKbrp+',
+#'database': 'norsamel_onlineledger'
 
 def run_select_query(query):
     conn = mysql.connector.connect(**db_config)
